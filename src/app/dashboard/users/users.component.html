@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="card-header" data-background-color="primary">
+    <h4 class="title">Search Users</h4>
+  </div>
+  <div class="card-content">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group label-floating">
+          <label class="control-label">User Id</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group label-floating">
+          <label class="control-label">Username</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group label-floating">
+          <label class="control-label">Email</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group label-floating">
+          <label class="control-label">Phone</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-1">
+
+        <button class="btn btn-primary btn-round btn-just-icon" type="submit">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="card">
+  <div class="card-header" data-background-color="primary">
+    <h4 class="title">Users</h4>
+  </div>
+  <div class="card-content">
+    <div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+      <data-table id="persons-grid" headerTitle="" [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)" (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)" [rowTooltip]="rowTooltip">
+        <data-table-column [property]="'name'" [header]="'Name'" [sortable]="true" [resizable]="true">
+        </data-table-column>
+        <data-table-column [property]="'date'" [header]="'Member Since'" [sortable]="true">
+          <ng-template #dataTableCell let-item="item">
+            <span>{{item.date | date:'yyyy-MM-dd'}}</span>
+          </ng-template>
+        </data-table-column>
+        <data-table-column property="phoneNumber" header="# Claimed Properties" width="150px">
+        </data-table-column>
+        <data-table-column [property]="'jobTitle'" [header]="'#Scored Properties'" [visible]="false">
+        </data-table-column>
+        <data-table-column [property]="'active'" [header]="'Actions'" [width]="100" [resizable]="true">
+          <ng-template #dataTableHeader let-item="item">
+            <span>Actions</span>
+          </ng-template>
+          <ng-template #dataTableCell let-item="item">
+            <span>
+              <i class="material-icons">visibility</i>
+              
+              <i class="material-icons">create</i>
+              <i class="material-icons">delete</i>
+            </span>
+          </ng-template>
+        </data-table-column>
+      </data-table>
+    </div>
+  </div>
+</div>
