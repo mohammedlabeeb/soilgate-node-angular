@@ -1,1 +1,0 @@
-# soilgate-node-angular
